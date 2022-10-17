@@ -14,7 +14,42 @@
   --h3-font-size: 1rem;
   --small-font-size: 0.813rem;
   --smaller-font-size: 0.75rem;
+
+
+  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+  --signature-font: "Caveat", sans-serif;
+
+  /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+  --big-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== Margenes Bottom ==========*/
+  /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-3: 3rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
 }
+
 
 /* Responsive typography */
 @media screen and (min-width: 1024px) {
@@ -23,6 +58,41 @@
     --small-font-size: 0.875rem;
     --smaller-font-size: 0.813rem;
   }
+}
+
+/*==================== LAYOUT ====================*/
+.container {
+  max-width: 768px;
+  margin-left: var(--mb-1-5);
+  margin-right: var(--mb-1-5);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+
+/* ====Reusable Code ============ */
+
+.section {
+  padding: 2rem 0 4rem;
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  color: var(--title-color);
+}
+
+.section__subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: var(--mb-3);
+}
+
+.section__title,
+.section__subtitle {
+  text-align: center;
 }
 
 /*=============== BASE ===============*/
@@ -41,6 +111,53 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+
+
+
+/*==================== ABOUT ====================*/
+.about__img {
+  width: 200px;
+  border-radius: 0.5rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.about__description {
+  text-align: center;
+  margin-bottom: var(--mb-2-5);
+}
+
+.about__info {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: var(--mb-2-5);
+}
+
+.about__info-title {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+.about__info-name {
+  font-size: var(--smaller-font-size);
+}
+
+.about__info-title,
+.about__info-name {
+  display: block;
+  text-align: center;
+}
+
+.about__buttons {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+
+
 
 /*==================== Gallery ====================*/
 
@@ -139,7 +256,7 @@ img {
 }
 
 .gallery .swiper-wrapper{
-  padding: 2.5rem 0;
+  padding: 1.5rem 0;
 }
 
 .gallery-thumbs {
@@ -236,6 +353,54 @@ img {
 
   .gallery-cards,
   .gallery-thumbs {
-    width: 280px;
+    width: 290px;
   }
+}
+
+
+@media screen and (min-width: 568px) {
+  .about__container
+  {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media screen and (min-width: 768px) {
+.section {
+    padding: 6rem 0 2rem;
+  }
+
+  .section__subtitle {
+    margin-bottom: 4rem;
+  }
+
+  .about__container {
+    column-gap: 5rem;
+  }
+
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+  .about__img {
+    /* width: 350px; */
+  }
+
+  .about__description {
+    text-align: initial;
+  }
+
+  .about__info {
+    justify-content: space-between;
+  }
+
+  .about__buttons {
+    justify-content: initial;
+  }
+
 }
